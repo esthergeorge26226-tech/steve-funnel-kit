@@ -48,6 +48,7 @@ const PhoneField = forwardRef<HTMLInputElement, React.InputHTMLAttributes<HTMLIn
 interface Props {
   formTags?: string[];
   submitLabel?: string;
+  successMessage?: string;
   successRedirect?: string;
   successLinkUrl?: string;
   successLinkLabel?: string;
@@ -64,6 +65,7 @@ interface FormData {
 export default function LeadCaptureForm({
   formTags = ['website_lead'],
   submitLabel = 'Submit',
+  successMessage,
   successRedirect,
   successLinkUrl,
   successLinkLabel = 'Access Your Resource',
@@ -123,7 +125,7 @@ export default function LeadCaptureForm({
       if (result.success) {
         setLoading(false);
         setSuccess(true);
-        toast.success(successLinkUrl ? "You're in!" : "You're in! Check your inbox.");
+        toast.success(successMessage ?? (successLinkUrl ? "You're in!" : "You're in! Check your inbox."));
 
         // If successLinkUrl is set, show inline success with resource link (no redirect)
         // If successRedirect is set (and no successLinkUrl), redirect to next step

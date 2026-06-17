@@ -17,7 +17,7 @@ const ALLOWED_TAGS = [
   'lead_magnet',
   'form_qualify',
   'workshop_signup',
-  // TODO: Add your custom tags here
+  'veteran_sop_lead',
 ];
 
 const MAX_REQUESTS_PER_MINUTE = 10;

@@ -1,0 +1,93 @@
+---
+import LeadLayout from '@/layouts/LeadLayout.astro';
+import LeadCaptureForm from '@/components/forms/LeadCaptureForm.tsx';
+import Badge from '@/components/ui/data-display/Badge/Badge.astro';
+import Icon from '@/components/ui/primitives/Icon/Icon.astro';
+
+const formTags = ['veteran_sop_lead'];
+
+const benefits = [
+  'The 5-phase roadmap from zero LinkedIn presence to your first client',
+  'A battle-tested outreach script that books your first discovery call',
+  'A profile checklist that takes you from invisible to in-demand fast',
+];
+
+const termsHtml = `<p>By providing my information, I agree to receive communications and accept the <a href="/terms">Privacy Policy</a>. Unsubscribe anytime.</p>`;
+---
+
+<LeadLayout
+  title="Free 5-Phase LinkedIn SOP for Veterans | Rank & Revenue"
+  description="Get the free 5-phase SOP that takes transitioning veterans from zero LinkedIn presence to their first paying client."
+>
+  <section class="sq-hero relative overflow-hidden">
+    <div
+      class="bg-grid-pattern pointer-events-none absolute inset-0 [mask-image:linear-gradient(to_bottom,white,transparent)] opacity-40"
+      aria-hidden="true"
+    />
+
+    <div class="mx-auto max-w-6xl px-6 relative z-10 py-6 md:py-0">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-[var(--space-section-gap)] items-center">
+
+        {/* Left: Badge + Headline + Subheadline + Benefits */}
+        <div>
+          <Badge variant="brand" pill>
+            🇺🇸 Built for those who served
+          </Badge>
+
+          <h1 class="mt-4 font-display text-3xl md:text-4xl font-bold tracking-tight text-foreground leading-tight">
+            You signed your DD-214.<br class="hidden sm:block" /> Now what?
+          </h1>
+
+          <p class="mt-4 text-lg leading-relaxed text-foreground-muted max-w-xl">
+            Get the free 5-phase SOP that takes transitioning veterans from zero LinkedIn presence to their first paying client.
+          </p>
+
+          <ul class="mt-6 space-y-3">
+            {benefits.map((item) => (
+              <li class="flex gap-3 items-start text-foreground-secondary text-sm">
+                <Icon name="check-circle" size="sm" class="text-brand-500 mt-0.5 shrink-0" />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+
+          <p class="mt-8 text-xs text-foreground-muted">
+            Helping veterans build personal brands that land clients on LinkedIn.
+          </p>
+        </div>
+
+        {/* Right: Form Card */}
+        <div>
+          <div class="rounded-2xl border border-border bg-card p-6 md:p-8 shadow-sm">
+            <h2 class="font-display text-xl font-bold tracking-tight text-foreground">
+              Get your free SOP
+            </h2>
+            <p class="mt-1 text-sm text-foreground-muted">
+              Delivered instantly to your inbox. No fluff — just a clear mission brief.
+            </p>
+
+            <LeadCaptureForm
+              client:load
+              formTags={formTags}
+              submitLabel="Send Me The Free SOP"
+              successMessage="Check your email — your SOP is on the way! 🎖️"
+              termsHtml={termsHtml}
+            />
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</LeadLayout>
+
+<style>
+  .sq-hero {
+    padding-top: calc(var(--space-page-top-sm) + 32px);
+  }
+  @media (min-width: 1024px) {
+    .sq-hero {
+      padding-top: calc(var(--space-page-top-sm) + 64px);
+    }
+  }
+</style>
