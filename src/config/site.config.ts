@@ -59,7 +59,7 @@ const siteConfig: SiteConfig = {
   ogImage: '/og-default.png',
   author: 'Esther George',
   email: 'esthergeorge26226@gmail.com',
-  phoneCountryCode: 'AU',
+  phoneCountryCode: 'US',
   socialLinks: [],
   verification: {
     google: GOOGLE_SITE_VERIFICATION,
