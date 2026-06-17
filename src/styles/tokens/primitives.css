@@ -24,13 +24,13 @@
   --gray-950: oklch(13% 0.016 265);
 
   /* -------------------------------------------------------------------------
-     Brand Emerald Scale
-     Inspired by Supabase green, tuned slightly cooler (hue 162) for
-     a modern AI/tech feel. Works on both light and dark backgrounds.
-     brand-300 ≈ bright emerald for glows & dark-bg accents
+     Brand Copper Scale
+     Warm copper/rust tone (hue 38) — sits between red and orange for
+     a rich, grounded feel. Works on both light and dark backgrounds.
+     brand-300 ≈ warm copper highlight for glows & dark-bg accents
      brand-500 = primary, WCAG AA readable on white
      ------------------------------------------------------------------------- */
-  --brand-hue: 162;
+  --brand-hue: 38;
   --brand-50: oklch(97% 0.02 var(--brand-hue));
   --brand-100: oklch(94% 0.04 var(--brand-hue));
   --brand-200: oklch(89% 0.08 var(--brand-hue));
@@ -42,9 +42,9 @@
   --brand-800: oklch(35% 0.10 var(--brand-hue));
   --brand-900: oklch(25% 0.06 var(--brand-hue));
 
-  /* Accent - Amber for secondary highlights / urgency */
-  --orange-500: oklch(75% 0.18 75);
-  --orange-600: oklch(68% 0.16 75);
+  /* Accent - Gold (#F5C842) for secondary highlights / urgency */
+  --orange-500: oklch(83% 0.19 85);
+  --orange-600: oklch(74% 0.18 85);
 
   /* Accent - Blue for links/focus */
   --blue-500: oklch(59.5% 0.19 260);

@@ -8,9 +8,6 @@ import { ClientRouter } from 'astro:transitions';
 import { createWebsiteSchema, createOrganizationSchema } from '@/lib/schema';
 import type { WebSite, Organization, WithContext } from 'schema-dts';
 import siteConfig from '@/config/site.config';
-// Demo: theme customizer + restore script. Customizer self-checks via /api/demo-mode at runtime.
-import ThemeCustomizer from '@/components/_demo/ThemeCustomizer.tsx';
-import DemoRestore from '@/components/_demo/DemoRestore.astro';
 
 interface Props {
   title?: string;
@@ -54,7 +51,7 @@ if (includeOrgSchema) {
     <meta name="generator" content={Astro.generator} />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href={siteConfig.branding.favicon.svg} />
+    <link rel="icon" type="image/png" href={siteConfig.branding.favicon.svg} />
     <link rel="manifest" href="/manifest.webmanifest" />
     <meta name="theme-color" content={siteConfig.branding.colors.themeColor} />
 
@@ -85,24 +82,12 @@ if (includeOrgSchema) {
     <script is:inline>
       (function () {
         var mq = window.matchMedia('(prefers-color-scheme: dark)');
-        function apply() {
-          // Demo customizer dark mode takes priority if set
-          var sfkDark = localStorage.getItem('sfk-dark');
-          if (sfkDark !== null) {
-            document.documentElement.classList.toggle('dark', sfkDark === '1');
-          } else {
-            document.documentElement.classList.toggle('dark', mq.matches);
-          }
-        }
-        apply();
-        mq.addEventListener('change', function () {
-          if (!localStorage.getItem('sfk-dark')) apply();
-        });
-        document.addEventListener('astro:after-swap', apply);
+        function apply(dark) { document.documentElement.classList.toggle('dark', dark); }
+        apply(mq.matches);
+        mq.addEventListener('change', function (e) { apply(e.matches); });
+        document.addEventListener('astro:after-swap', function () { apply(mq.matches); });
       })();
     </script>
-
-    <DemoRestore />
   </head>
 
   <body class="flex min-h-screen flex-col bg-background text-foreground antialiased">
@@ -123,8 +108,5 @@ if (includeOrgSchema) {
     <slot name="footer" />
 
     <ConsentBanner />
-
-    {/* Theme customizer — self-checks /api/demo-mode at runtime */}
-    <ThemeCustomizer client:only="react" />
   </body>
 </html>

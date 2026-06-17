@@ -53,12 +53,12 @@ export interface SiteConfig {
 }
 
 const siteConfig: SiteConfig = {
-  name: 'Damn Good Funnels',
-  description: 'Simple landing pages that actually convert. Built on a proper design system so AI can\'t produce slop.',
-  url: SITE_URL || 'https://damngoodfunnels.com',
+  name: 'Rank & Revenue',
+  description: 'Built for those who served.',
+  url: SITE_URL || 'https://rankandrevenue.com',
   ogImage: '/og-default.png',
-  author: 'Steve Butler',
-  email: 'hello@damngoodfunnels.com',
+  author: 'Esther George',
+  email: 'esthergeorge26226@gmail.com',
   phoneCountryCode: 'AU',
   socialLinks: [],
   verification: {
@@ -67,13 +67,13 @@ const siteConfig: SiteConfig = {
   },
   branding: {
     logo: {
-      alt: 'Damn Good Funnels',
+      alt: 'Rank & Revenue',
     },
     favicon: {
-      svg: '/favicon.svg',
+      svg: '/favicon.png',
     },
     colors: {
-      themeColor: '#3ECF8E',
+      themeColor: '#7B3A1E',
       backgroundColor: '#0f0f11',
     },
   },
